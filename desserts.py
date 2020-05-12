@@ -27,7 +27,7 @@ class Cupcake:
     self.qty += amount
 
   def sell(self, amount):
-    """sell the number of cupcakes in amount and adjust qty"""
+    """sell the number of cupcakes in amount"""
 
     if self.qty == 0:
       print('Sorry, these cupcakes are sold out')
@@ -46,8 +46,8 @@ class Cupcake:
     tuples are ('ingredient', amount)
     """
 
-    return [(ingredient[0], (ingredient[1] * amount)) 
-             for ingredient in ingredients]
+    return [(ingredient, qty * amount)
+            for ingredient, qty in ingredients]
 
   @classmethod
   def get(cls, name):
@@ -58,6 +58,9 @@ class Cupcake:
       return
 
     return cls.cache[name]
+
+
+
 
 
 class Brownie(Cupcake):
